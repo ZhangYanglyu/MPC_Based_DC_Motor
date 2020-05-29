@@ -3,7 +3,7 @@ function [Phi_Phi, Phi_F, Phi_R, A_e, B_e, C_e] = mpcgain(Ap, Bp, Cp, Nc, Np)
 % m1: 输出变量个数
 % n1: 状态变量个数
 % n_in: 输入变量个数
-[m1, ~] = size(Cp);
+[m1, n1] = size(Cp);
 [n1, n_in] = size(Bp);
 
 % 离散形式的状态空间模型---->extend state-model
@@ -33,7 +33,7 @@ for i = 2:Nc
     Phi(:, i) = [zeros(i-1, 1); v(1:Np-i+1, 1)];
 end
 
-BarRs = ones(Np, 1); % 控制器调节参数
+BarRs = 1*ones(Np, 1); % 控制器调节参数, 闭环响应越快，该参数应该越小
 Phi_Phi =   Phi' * Phi;
 Phi_F = Phi' * F;
 Phi_R = Phi' * BarRs;
