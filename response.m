@@ -1,7 +1,5 @@
-% mass-spring damped system
-% m \ddot{d}(t) + c \dot{q}(t) + k q(t) = u(t)
-% q : position of the mass
-% u : external force
+% dc motor system
+
 % system parameters
 % m = 3;
 % k = 1;
@@ -47,7 +45,7 @@ Nc = 100;
 xm = [0;0];
 Xf = zeros(n,1);
 
-% 仿真时间：100个采样时间间隔
+% 仿真时间：1000个采样时间间隔
 N_sim = 1000;
 
 % r：目标设定值
